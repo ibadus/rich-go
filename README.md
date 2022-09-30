@@ -1,20 +1,26 @@
-# rich-go [![Build Status](https://travis-ci.org/hugolgst/rich-go.svg?branch=master)](https://travis-ci.org/hugolgst/rich-go)
+# rich-go [![Build Status](https://travis-ci.org/ibadus/rich-go.svg?branch=master)](https://travis-ci.org/ibadus/rich-go)
 
-An implementation of Discord's rich presence in Golang for Linux, macOS and Windows
+An implementation of Discord's rich presence in Golang for Linux, macOS and Windows.
+\
+### ❗Fork reason
+I had issue with the original repo, when trying to build a windows binary on Linux, so I forked it and made some changes. 
+\
+I removed the [npipe](https://github.com/natefinch/npipe/tree/v2) (old) package to rather use [Microsoft implementation](https://github.com/microsoft/go-winio).
+As the old package used syscalls directly, I wasn't able to build it on Linux nor MacOS.
 
 ## Installation
 
-Install `github.com/hugolgst/rich-go`:
+Install `github.com/ibadus/rich-go`:
 
 ```
-$ go get github.com/hugolgst/rich-go
+$ go get github.com/ibadus/rich-go
 ```
 
 ## Usage
 
 First of all import rich-go
 ```golang
-import "github.com/hugolgst/rich-go/client"
+import "github.com/ibadus/rich-go/client"
 ```
 
 then login by sending the first handshake
@@ -53,7 +59,7 @@ More details in the [example](https://github.com/ananagame/rich-go/blob/master/e
 
 ## Contributing
 
-1. Fork it (https://github.com/hugolgst/rich-go/fork)
+1. Fork it (https://github.com/ibadus/rich-go/fork)
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
@@ -61,6 +67,4 @@ More details in the [example](https://github.com/ananagame/rich-go/blob/master/e
 
 ## Contributors
 
-- [hugolgst](https://github.com/hugolgst) - creator, maintainer
-- [donovansolms](https://github.com/donovansolms) - contributor
-- [heroslender](https://github.com/heroslender) - contributor
+Check [original repo](https://github.com/hugolgst/rich-go) for contributors
