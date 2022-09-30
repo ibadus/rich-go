@@ -1,9 +1,10 @@
+//go:build windows
 // +build windows
 
 package ipc
 
 import (
-	npipe "gopkg.in/natefinch/npipe.v2"
+	"github.com/Microsoft/go-winio"
 	"time"
 )
 
@@ -12,7 +13,8 @@ func OpenSocket() error {
 	// Connect to the Windows named pipe, this is a well known name
 	// We use DialTimeout since it will block forever (or very very long) on Windows
 	// if the pipe is not available (Discord not running)
-	sock, err := npipe.DialTimeout(`\\.\pipe\discord-ipc-0`, time.Second*2)
+	t := time.Second * 2
+	sock, err := winio.DialPipe(`\\.\pipe\discord-ipc-0`, &t)
 	if err != nil {
 		return err
 	}
